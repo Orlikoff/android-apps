@@ -7,9 +7,11 @@
     tools:context=".DataFragment">
 
     <RadioGroup
+        android:id="@+id/radioGroup"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
         android:layout_marginEnd="16dp"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
@@ -17,10 +19,10 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <RadioButton
-            android:checked="true"
             android:id="@+id/rbWeight"
-            android:text="@string/weight"
-            style="@style/radioButton" />
+            style="@style/radioButton"
+            android:checked="true"
+            android:text="@string/weight" />
 
         <RadioButton
             android:id="@+id/rbDistance"
@@ -33,5 +35,16 @@
             android:text="@string/volume" />
 
     </RadioGroup>
+
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/fragmentContainerView"
+        android:name="com.orlik.converter.WeightFragment"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/radioGroup" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

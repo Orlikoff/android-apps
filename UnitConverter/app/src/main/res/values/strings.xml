@@ -1,4 +1,5 @@
 <resources>
+
     <string name="app_name">Unit Converter</string>
     <string name="numpad9">9</string>
     <string name="numpad8">8</string>
@@ -15,4 +16,13 @@
     <string name="weight">weight</string>
     <string name="distance">distance</string>
     <string name="volume">volume</string>
+
+    <string-array name="weight_names">
+        <item>Kg</item>
+        <item>Oz</item>
+        <item>Kt</item>
+    </string-array>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
 </resources>

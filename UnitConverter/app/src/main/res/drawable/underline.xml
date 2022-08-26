@@ -1,0 +1,15 @@
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="@android:color/transparent" />
+        </shape>
+    </item>
+
+    <item android:drawable="@drawable/radio_normal" />
+    <item
+        android:height="4dp"
+        android:drawable="@drawable/line_selector"
+        android:gravity="bottom"
+        android:left="18sp"
+        android:right="18sp" />
+</layer-list>
