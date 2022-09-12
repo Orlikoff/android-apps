@@ -1,179 +1,172 @@
 <?xml version="1.0" encoding="utf-8"?>
-<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/numpad"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".NumpadFragment"
-    android:background="#E6E6E6">
+    android:orientation="vertical">
 
-
-    <TableRow
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="0.25">
+        android:gravity="center">
 
-        <TextView
-            android:id="@+id/numpad7"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="0.33"
-            android:gravity="center"
-            android:text="@string/numpad7"
-            android:textAllCaps="false"
-            android:textColor="#000000"
-            android:textSize="25sp"
-            android:textStyle="bold" />
-
-        <TextView
-            android:id="@+id/numpad8"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="0.33"
-            android:gravity="center"
-            android:text="@string/numpad8"
-            android:textAllCaps="false"
-            android:textColor="#000000"
-            android:textSize="25sp"
-            android:textStyle="bold" />
-
-        <TextView
-            android:id="@+id/numpad9"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="0.33"
-            android:gravity="center"
+        <com.google.android.material.button.MaterialButton
+            android:layout_width="@dimen/btn_width"
+            android:layout_height="@dimen/btn_width"
+            app:cornerRadius="@dimen/btn_radius"
+            android:id="@+id/btn_9"
+            style="@style/Widget.MaterialComponents.ExtendedFloatingActionButton"
+            android:backgroundTint="@color/purple_500"
+            android:textColor="@color/white"
             android:text="@string/numpad9"
-            android:textAllCaps="false"
-            android:textColor="#000000"
-            android:textSize="25sp"
-            android:textStyle="bold" />
-    </TableRow>
+            android:textSize="@dimen/btn_text"
+            android:layout_margin="12dp"/>
+        <com.google.android.material.button.MaterialButton
+            android:layout_width="@dimen/btn_width"
+            android:layout_height="@dimen/btn_width"
+            app:cornerRadius="@dimen/btn_radius"
+            android:id="@+id/btn_8"
+            style="@style/Widget.MaterialComponents.ExtendedFloatingActionButton"
+            android:backgroundTint="@color/purple_500"
+            android:textColor="@color/white"
+            android:text="@string/numpad8"
+            android:textSize="@dimen/btn_text"
+            android:layout_margin="12dp"/>
+        <com.google.android.material.button.MaterialButton
+            android:layout_width="@dimen/btn_width"
+            android:layout_height="@dimen/btn_width"
+            app:cornerRadius="@dimen/btn_radius"
+            android:id="@+id/btn_7"
+            style="@style/Widget.MaterialComponents.ExtendedFloatingActionButton"
+            android:backgroundTint="@color/purple_500"
+            android:textColor="@color/white"
+            android:text="@string/numpad7"
+            android:textSize="@dimen/btn_text"
+            android:layout_margin="12dp"/>
 
-    <TableRow
+    </LinearLayout>
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="0.25">
+        android:layout_height="wrap_content"
+        android:gravity="center">
 
-        <TextView
-            android:id="@+id/numpad4"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="0.33"
-            android:gravity="center"
-            android:text="@string/numpad4"
-            android:textAllCaps="false"
-            android:textColor="#000000"
-            android:textSize="25sp"
-            android:textStyle="bold" />
-
-        <TextView
-            android:id="@+id/numpad5"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="0.33"
-            android:gravity="center"
-            android:text="@string/numpad5"
-            android:textAllCaps="false"
-            android:textColor="#000000"
-            android:textSize="25sp"
-            android:textStyle="bold" />
-
-        <TextView
-            android:id="@+id/numpad6"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="0.33"
-            android:gravity="center"
+        <com.google.android.material.button.MaterialButton
+            android:layout_width="@dimen/btn_width"
+            android:layout_height="@dimen/btn_width"
+            app:cornerRadius="@dimen/btn_radius"
+            android:id="@+id/btn_6"
+            style="@style/Widget.MaterialComponents.ExtendedFloatingActionButton"
+            android:backgroundTint="@color/purple_500"
+            android:textColor="@color/white"
             android:text="@string/numpad6"
-            android:textAllCaps="false"
-            android:textColor="#000000"
-            android:textSize="25sp"
-            android:textStyle="bold" />
-    </TableRow>
+            android:textSize="@dimen/btn_text"
+            android:layout_margin="12dp"/>
+        <com.google.android.material.button.MaterialButton
+            android:layout_width="@dimen/btn_width"
+            android:layout_height="@dimen/btn_width"
+            app:cornerRadius="@dimen/btn_radius"
+            android:id="@+id/btn_5"
+            style="@style/Widget.MaterialComponents.ExtendedFloatingActionButton"
+            android:backgroundTint="@color/purple_500"
+            android:textColor="@color/white"
+            android:text="@string/numpad5"
+            android:textSize="@dimen/btn_text"
+            android:layout_margin="12dp"/>
+        <com.google.android.material.button.MaterialButton
+            android:layout_width="@dimen/btn_width"
+            android:layout_height="@dimen/btn_width"
+            app:cornerRadius="@dimen/btn_radius"
+            android:id="@+id/btn_4"
+            style="@style/Widget.MaterialComponents.ExtendedFloatingActionButton"
+            android:backgroundTint="@color/purple_500"
+            android:textColor="@color/white"
+            android:text="@string/numpad4"
+            android:textSize="@dimen/btn_text"
+            android:layout_margin="12dp"/>
 
-    <TableRow
+    </LinearLayout>
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="0.25">
+        android:layout_height="wrap_content"
+        android:gravity="center">
 
-        <TextView
-            android:id="@+id/numpad1"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="0.33"
-            android:gravity="center"
-            android:text="@string/numpad1"
-            android:textAllCaps="false"
-            android:textColor="#000000"
-            android:textSize="25sp"
-            android:textStyle="bold" />
-
-        <TextView
-            android:id="@+id/numpad2"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="0.33"
-            android:gravity="center"
-            android:text="@string/numpad2"
-            android:textAllCaps="false"
-            android:textColor="#000000"
-            android:textSize="25sp"
-            android:textStyle="bold" />
-
-        <TextView
-            android:id="@+id/numpad3"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="0.33"
-            android:gravity="center"
+        <com.google.android.material.button.MaterialButton
+            android:layout_width="@dimen/btn_width"
+            android:layout_height="@dimen/btn_width"
+            app:cornerRadius="@dimen/btn_radius"
+            android:id="@+id/btn_3"
+            style="@style/Widget.MaterialComponents.ExtendedFloatingActionButton"
+            android:backgroundTint="@color/purple_500"
+            android:textColor="@color/white"
             android:text="@string/numpad3"
-            android:textAllCaps="false"
-            android:textColor="#000000"
-            android:textSize="25sp"
-            android:textStyle="bold" />
-    </TableRow>
+            android:textSize="@dimen/btn_text"
+            android:layout_margin="12dp"/>
+        <com.google.android.material.button.MaterialButton
+            android:layout_width="@dimen/btn_width"
+            android:layout_height="@dimen/btn_width"
+            app:cornerRadius="@dimen/btn_radius"
+            android:id="@+id/btn_2"
+            style="@style/Widget.MaterialComponents.ExtendedFloatingActionButton"
+            android:backgroundTint="@color/purple_500"
+            android:textColor="@color/white"
+            android:text="@string/numpad2"
+            android:textSize="@dimen/btn_text"
+            android:layout_margin="12dp"/>
+        <com.google.android.material.button.MaterialButton
+            android:layout_width="@dimen/btn_width"
+            android:layout_height="@dimen/btn_width"
+            app:cornerRadius="@dimen/btn_radius"
+            android:id="@+id/btn_1"
+            style="@style/Widget.MaterialComponents.ExtendedFloatingActionButton"
+            android:backgroundTint="@color/purple_500"
+            android:textColor="@color/white"
+            android:text="@string/numpad1"
+            android:textSize="@dimen/btn_text"
+            android:layout_margin="12dp"/>
 
-    <TableRow
+    </LinearLayout>
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="0.25">
+        android:layout_height="wrap_content"
+        android:gravity="center">
 
-        <TextView
-            android:id="@+id/numpadDot"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="0.33"
-            android:gravity="center"
+        <com.google.android.material.button.MaterialButton
+            android:layout_width="@dimen/btn_width"
+            android:layout_height="@dimen/btn_width"
+            app:cornerRadius="@dimen/btn_radius"
+            android:id="@+id/btn_dot"
+            style="@style/Widget.MaterialComponents.ExtendedFloatingActionButton"
+            android:backgroundTint="@color/purple_500"
+            android:textColor="@color/white"
             android:text="@string/numpadDot"
-            android:textAllCaps="false"
-            android:textColor="#000000"
-            android:textSize="25sp"
-            android:textStyle="bold" />
-
-        <TextView
-            android:id="@+id/numpad0"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="0.33"
-            android:gravity="center"
+            android:textSize="@dimen/btn_text"
+            android:layout_margin="12dp"/>
+        <com.google.android.material.button.MaterialButton
+            android:layout_width="@dimen/btn_width"
+            android:layout_height="@dimen/btn_width"
+            app:cornerRadius="@dimen/btn_radius"
+            android:id="@+id/btn_0"
+            style="@style/Widget.MaterialComponents.ExtendedFloatingActionButton"
+            android:backgroundTint="@color/purple_500"
+            android:textColor="@color/white"
             android:text="@string/numpad0"
-            android:textAllCaps="false"
-            android:textColor="#000000"
-            android:textSize="25sp"
-            android:textStyle="bold" />
-
-        <TextView
-            android:id="@+id/numpadClear"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="0.33"
-            android:gravity="center"
+            android:textSize="@dimen/btn_text"
+            android:layout_margin="12dp"/>
+        <com.google.android.material.button.MaterialButton
+            android:layout_width="@dimen/btn_width"
+            android:layout_height="@dimen/btn_width"
+            app:cornerRadius="@dimen/btn_radius"
+            android:id="@+id/btn_clear"
+            style="@style/Widget.MaterialComponents.ExtendedFloatingActionButton"
+            android:backgroundTint="@color/purple_500"
+            android:textColor="@color/white"
             android:text="@string/numpadClear"
-            android:textAllCaps="false"
-            android:textColor="#000000"
-            android:textSize="25sp"
-            android:textStyle="bold" />
-    </TableRow>
-</TableLayout>
+            android:textSize="@dimen/btn_text"
+            android:layout_margin="12dp"/>
+
+    </LinearLayout>
+
+</LinearLayout>
