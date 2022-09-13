@@ -1,8 +1,8 @@
-package com.orlik.converter
+package com.orlik.converter.viewModels
 
 import androidx.lifecycle.ViewModel
 
-class WeightViewModel : ViewModel() {
+class DistanceViewModel : ViewModel() {
     var editValue: Float = 0.0f
     var resultValue: Float = 0.0f
     var convertFrom: Int = 2

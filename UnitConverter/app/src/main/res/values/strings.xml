@@ -22,7 +22,17 @@
         <item>Oz</item>
         <item>Kt</item>
     </string-array>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string-array name="distance_names">
+        <item>Mt</item>
+        <item>Yd</item>
+        <item>In</item>
+    </string-array>
+
+    <string-array name="volume_names">
+        <item>Lt</item>
+        <item>Gl</item>
+        <item>Pt</item>
+    </string-array>
 
 </resources>

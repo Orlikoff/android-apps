@@ -11,6 +11,7 @@ import android.view.Menu
 import android.view.MenuItem
 import android.widget.Button
 import com.orlik.converter.databinding.ActivityMainBinding
+import com.orlik.converter.unitFragments.WeightFragment
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding

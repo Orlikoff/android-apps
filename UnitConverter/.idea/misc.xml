@@ -15,15 +15,17 @@
         <entry key="..\:/Users/Orlik/Desktop/Android labs/UnitConverter/app/src/main/res/drawable/text_normal.xml" value="0.274" />
         <entry key="..\:/Users/Orlik/Desktop/Android labs/UnitConverter/app/src/main/res/drawable/text_selector.xml" value="0.274" />
         <entry key="..\:/Users/Orlik/Desktop/Android labs/UnitConverter/app/src/main/res/drawable/underline.xml" value="0.274" />
+        <entry key="..\:/Users/Orlik/Desktop/Android labs/UnitConverter/app/src/main/res/layout-land/activity_main.xml" value="0.45625" />
         <entry key="..\:/Users/Orlik/Desktop/Android labs/UnitConverter/app/src/main/res/layout/activity_main.xml" value="0.264" />
         <entry key="..\:/Users/Orlik/Desktop/Android labs/UnitConverter/app/src/main/res/layout/content_main.xml" value="0.3234375" />
         <entry key="..\:/Users/Orlik/Desktop/Android labs/UnitConverter/app/src/main/res/layout/dropdown_item.xml" value="0.6" />
         <entry key="..\:/Users/Orlik/Desktop/Android labs/UnitConverter/app/src/main/res/layout/fragment_data.xml" value="0.264" />
-        <entry key="..\:/Users/Orlik/Desktop/Android labs/UnitConverter/app/src/main/res/layout/fragment_distance.xml" value="0.6" />
+        <entry key="..\:/Users/Orlik/Desktop/Android labs/UnitConverter/app/src/main/res/layout/fragment_distance.xml" value="0.4426229508196721" />
         <entry key="..\:/Users/Orlik/Desktop/Android labs/UnitConverter/app/src/main/res/layout/fragment_first.xml" value="0.3234375" />
         <entry key="..\:/Users/Orlik/Desktop/Android labs/UnitConverter/app/src/main/res/layout/fragment_numpad.xml" value="0.264" />
         <entry key="..\:/Users/Orlik/Desktop/Android labs/UnitConverter/app/src/main/res/layout/fragment_second.xml" value="0.3234375" />
-        <entry key="..\:/Users/Orlik/Desktop/Android labs/UnitConverter/app/src/main/res/layout/fragment_weight.xml" value="0.1" />
+        <entry key="..\:/Users/Orlik/Desktop/Android labs/UnitConverter/app/src/main/res/layout/fragment_volume.xml" value="0.2539546814878153" />
+        <entry key="..\:/Users/Orlik/Desktop/Android labs/UnitConverter/app/src/main/res/layout/fragment_weight.xml" value="0.264" />
       </map>
     </option>
   </component>

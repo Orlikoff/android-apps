@@ -1,4 +1,4 @@
-package com.orlik.converter
+package com.orlik.converter.mainActivityRelated
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -8,14 +8,20 @@ import android.view.ViewGroup
 import android.widget.TextView
 import android.widget.Toast
 import com.google.android.material.button.MaterialButton
+import com.orlik.converter.tools.ModeTransfer
+import com.orlik.converter.tools.Modes
+import com.orlik.converter.R
 import com.orlik.converter.databinding.FragmentNumpadBinding
-import com.orlik.converter.databinding.FragmentWeightBinding
 
 class NumpadFragment : Fragment() {
 
     private var _binding: FragmentNumpadBinding? = null
     private val binding get() = _binding!!
-    private var currentEditElement: TextView? = null
+//    private var currentEditElement: TextView? = null
+
+    companion object {
+        var currentEditElement: TextView? = null
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -23,12 +29,6 @@ class NumpadFragment : Fragment() {
     ): View {
 
         _binding = FragmentNumpadBinding.inflate(inflater, container, false)
-
-        // Change editing to current mode
-        currentEditElement = when (ModeTransfer.currentMode) {
-            Modes.Weight -> activity?.findViewById(R.id.weight_tv_edit)
-            else -> activity?.findViewById(R.id.weight_tv_edit)
-        }
 
         // Setup buttons for current mode
         numpadSetupNum(binding.btn0)
