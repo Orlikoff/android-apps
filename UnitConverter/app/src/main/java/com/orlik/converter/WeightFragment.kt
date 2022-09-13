@@ -7,6 +7,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.Button
+import android.widget.Toast
+import androidx.core.widget.doOnTextChanged
 import androidx.lifecycle.ViewModelProvider
 import com.google.android.material.button.MaterialButton
 import com.orlik.converter.databinding.FragmentWeightBinding
@@ -33,13 +35,45 @@ class WeightFragment : Fragment() {
         val viewModel = ViewModelProvider(this)[WeightViewModel::class.java]
 
         // Initial value setup (rotate reload)
-        binding.weightTvEdit.text = viewModel.editValue.toString()
-        binding.weightTvDisplay.text = viewModel.resultValue.toString()
+        binding.weightTvEdit.setText(viewModel.editValue.toString())
+        binding.weightTvDisplay.setText(viewModel.resultValue.toString())
         binding.autoCompleteTextView.setText(arrayAdapter.getItem(viewModel.convertFrom), false)
         binding.autoCompleteTextView2.setText(arrayAdapter.getItem(viewModel.convertTo), false)
 
-        // Binding setup
+        // Converting logic
+        binding.weightTvEdit.doOnTextChanged { _, _, _, _ ->
+            recalculate(viewModel)
+        }
+
+        // Units chooser logic
+        binding.autoCompleteTextView.doOnTextChanged { _, _, _, _ ->
+            viewModel.convertFrom = arrayAdapter.getPosition(binding.autoCompleteTextView.text.toString())
+            recalculate(viewModel)
+        }
+        binding.autoCompleteTextView2.doOnTextChanged { _, _, _, _ ->
+            viewModel.convertTo = arrayAdapter.getPosition(binding.autoCompleteTextView2.text.toString())
+            recalculate(viewModel)
+        }
 
         return binding.root
+    }
+
+    private fun recalculate(viewModel: WeightViewModel){
+        var initialValue = binding.weightTvEdit.text.toString()
+        if (initialValue.endsWith(".")) initialValue = initialValue.dropLast(1)
+        if (initialValue.isEmpty()) initialValue = "0"
+
+        val convertingKey =
+            binding.autoCompleteTextView.text.toString() + binding.autoCompleteTextView2.text.toString()
+        val result = UnitConverter.convertUnit(
+            initialValue.toFloat(),
+            convertingKey,
+            ConvertingRules.weightsRules
+        ).toString()
+
+        viewModel.editValue = initialValue.toFloat()
+        viewModel.resultValue = result.toFloat()
+
+        binding.weightTvDisplay.setText(result)
     }
 }

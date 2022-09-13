@@ -70,18 +70,19 @@
         android:text="Exchange"
         app:icon="@drawable/ic_baseline_change_circle_24"
         app:iconPadding="0dp"
-        app:layout_constraintBottom_toTopOf="@+id/textInputLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/weightsFrom" />
 
-    <TextView
+    <EditText
         android:id="@+id/weight_tv_edit"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
-        android:isScrollContainer="true"
-        android:maxLines="1"
+        android:cursorVisible="false"
+        android:focusable="false"
+        android:scrollHorizontally="true"
+        android:singleLine="true"
         android:textAlignment="viewEnd"
         android:textColor="@color/black"
         android:textSize="20sp"
@@ -90,11 +91,14 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/weightsTo" />
 
-    <TextView
+    <EditText
         android:id="@+id/weight_tv_display"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
-        android:maxLines="1"
+        android:cursorVisible="false"
+        android:focusable="false"
+        android:scrollHorizontally="true"
+        android:singleLine="true"
         android:textColor="@color/black"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="@+id/textView7"

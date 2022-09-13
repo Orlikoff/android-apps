@@ -25,7 +25,7 @@ class NumpadFragment : Fragment() {
         _binding = FragmentNumpadBinding.inflate(inflater, container, false)
 
         // Change editing to current mode
-        currentEditElement= when (ModeTransfer.currentMode){
+        currentEditElement = when (ModeTransfer.currentMode) {
             Modes.Weight -> activity?.findViewById(R.id.weight_tv_edit)
             else -> activity?.findViewById(R.id.weight_tv_edit)
         }
@@ -41,18 +41,34 @@ class NumpadFragment : Fragment() {
         numpadSetupNum(binding.btn7)
         numpadSetupNum(binding.btn8)
         numpadSetupNum(binding.btn9)
-
-        // Show toast
-        Toast.makeText(requireContext(), "GOOD", Toast.LENGTH_LONG).show()
-
-        currentEditElement!!.text = "HI"
+        numpadSetupNum(binding.btnDot)
+        numpadSetupClear(binding.btnClear)
 
         return binding.root
     }
 
-    private fun numpadSetupNum(button: MaterialButton){
+    private fun numpadSetupNum(button: MaterialButton) {
         button.setOnClickListener {
-            val result = currentEditElement!!.text.toString() + button.text.toString()
+            var result = currentEditElement!!.text.toString()
+            var symbol = button.text.toString()
+
+            if (result == "0" && symbol == "0") symbol = ""
+            else if (result == "0" && symbol != "0") result = ""
+
+            if (result.contains(".") && symbol == ".") symbol = ""
+
+            if (result.isEmpty() && symbol == ".") symbol = "0."
+
+            result += symbol
+            currentEditElement!!.text = result
+        }
+    }
+
+    private fun numpadSetupClear(button: MaterialButton) {
+        button.setOnClickListener {
+            var result = currentEditElement!!.text.toString().dropLast(1)
+            if (result == "") result = "0"
+
             currentEditElement!!.text = result
         }
     }
