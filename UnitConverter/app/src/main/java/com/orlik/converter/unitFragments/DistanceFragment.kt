@@ -61,8 +61,25 @@ class DistanceFragment : Fragment() {
             viewModel.convertTo = arrayAdapter.getPosition(binding.autoCompleteTextViewDistance2.text.toString())
             recalculate()
         }
+        binding.btnExchangeDistance.setOnClickListener {
+            exchangeButtonPressed(arrayAdapter)
+        }
 
         return binding.root
+    }
+
+    private fun exchangeButtonPressed(arrayAdapter: CustomAdapter){
+        val temp = binding.distanceTvEdit.text
+        binding.distanceTvEdit.text = binding.distanceTvDisplay.text
+        binding.distanceTvDisplay.text = temp
+        val tmp = binding.autoCompleteTextViewDistance.text
+        binding.autoCompleteTextViewDistance.setText(binding.autoCompleteTextViewDistance2.text, false)
+        binding.autoCompleteTextViewDistance2.setText(tmp, false)
+
+        viewModel.editValue = binding.distanceTvEdit.text.toString().toFloat()
+        viewModel.resultValue = binding.distanceTvDisplay.text.toString().toFloat()
+        viewModel.convertFrom = arrayAdapter.getPosition(binding.autoCompleteTextViewDistance.text.toString())
+        viewModel.convertTo = arrayAdapter.getPosition(binding.autoCompleteTextViewDistance2.text.toString())
     }
 
     private fun recalculate(){

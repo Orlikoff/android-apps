@@ -62,8 +62,25 @@ class VolumeFragment : Fragment() {
             viewModel.convertTo = arrayAdapter.getPosition(binding.autoCompleteTextViewVolume2.text.toString())
             recalculate()
         }
+        binding.btnExchangeVolume.setOnClickListener {
+            exchangeButtonPressed(arrayAdapter)
+        }
 
         return binding.root
+    }
+
+    private fun exchangeButtonPressed(arrayAdapter: CustomAdapter){
+        val temp = binding.volumeTvEdit.text
+        binding.volumeTvEdit.text = binding.volumeTvDisplay.text
+        binding.volumeTvDisplay.text = temp
+        val tmp = binding.autoCompleteTextViewVolume.text
+        binding.autoCompleteTextViewVolume.setText(binding.autoCompleteTextViewVolume2.text, false)
+        binding.autoCompleteTextViewVolume2.setText(tmp, false)
+
+        viewModel.editValue = binding.volumeTvEdit.text.toString().toFloat()
+        viewModel.resultValue = binding.volumeTvDisplay.text.toString().toFloat()
+        viewModel.convertFrom = arrayAdapter.getPosition(binding.autoCompleteTextViewVolume.text.toString())
+        viewModel.convertTo = arrayAdapter.getPosition(binding.autoCompleteTextViewVolume2.text.toString())
     }
 
     private fun recalculate(){

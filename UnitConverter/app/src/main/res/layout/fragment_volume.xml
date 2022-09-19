@@ -87,6 +87,7 @@
         android:textAlignment="viewEnd"
         android:textColor="@color/black"
         android:textSize="20sp"
+        android:maxLength="16"
         app:layout_constraintEnd_toStartOf="@+id/textView7Volume"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"

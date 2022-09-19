@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.core.widget.doOnTextChanged
 import androidx.lifecycle.ViewModelProvider
@@ -39,8 +40,8 @@ class WeightFragment : Fragment() {
         viewModel = ViewModelProvider(requireActivity())[WeightViewModel::class.java]
 
         // Initial value setup (rotate reload)
-        binding.weightTvEdit.setText(viewModel.editValue.toString())
-        binding.weightTvDisplay.setText(viewModel.resultValue.toString())
+        binding.weightTvEdit.setText(viewModel.editValue.toBigDecimal().toString())
+        binding.weightTvDisplay.setText(viewModel.resultValue.toBigDecimal().toString())
         binding.autoCompleteTextView.setText(arrayAdapter.getItem(viewModel.convertFrom), false)
         binding.autoCompleteTextView2.setText(arrayAdapter.getItem(viewModel.convertTo), false)
 
@@ -60,8 +61,25 @@ class WeightFragment : Fragment() {
             viewModel.convertTo = arrayAdapter.getPosition(binding.autoCompleteTextView2.text.toString())
             recalculate()
         }
+        binding.btnExchangeWeight.setOnClickListener {
+            exchangeButtonPressed(arrayAdapter)
+        }
 
         return binding.root
+    }
+
+    private fun exchangeButtonPressed(arrayAdapter: CustomAdapter){
+        val temp = binding.weightTvEdit.text
+        binding.weightTvEdit.text = binding.weightTvDisplay.text
+        binding.weightTvDisplay.text = temp
+        val tmp = binding.autoCompleteTextView.text
+        binding.autoCompleteTextView.setText(binding.autoCompleteTextView2.text, false)
+        binding.autoCompleteTextView2.setText(tmp, false)
+
+        viewModel.editValue = binding.weightTvEdit.text.toString().toFloat()
+        viewModel.resultValue = binding.weightTvDisplay.text.toString().toFloat()
+        viewModel.convertFrom = arrayAdapter.getPosition(binding.autoCompleteTextView.text.toString())
+        viewModel.convertTo = arrayAdapter.getPosition(binding.autoCompleteTextView2.text.toString())
     }
 
     private fun recalculate(){
@@ -80,6 +98,6 @@ class WeightFragment : Fragment() {
         viewModel.editValue = initialValue.toFloat()
         viewModel.resultValue = result.toFloat()
 
-        binding.weightTvDisplay.setText(result)
+        binding.weightTvDisplay.setText(result.toBigDecimal().toString())
     }
 }
