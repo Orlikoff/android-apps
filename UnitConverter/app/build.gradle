@@ -6,6 +6,18 @@ plugins {
 android {
     compileSdk 32
 
+    flavorDimensions "configuration"
+    productFlavors {
+        free {
+            dimension "configuration"
+            applicationIdSuffix ".free"
+        }
+        full {
+            dimension "configuration"
+            applicationIdSuffix ".full"
+        }
+    }
+
     defaultConfig {
         applicationId "com.orlik.converter"
         minSdk 21
