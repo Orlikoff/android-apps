@@ -15,15 +15,15 @@
         android:background="@null"
         android:ems="10"
         android:importantForAutofill="no"
+        android:scrollHorizontally="true"
+        android:singleLine="true"
         android:text="0"
         android:textAlignment="viewEnd"
-        android:textSize="35sp"
-        app:layout_constraintBottom_toTopOf="@id/answerDisplay"
+        android:textSize="40sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:singleLine="true"
-        android:scrollHorizontally="true"/>
+        app:layout_constraintTop_toBottomOf="@+id/answerDisplay" />
 
     <TextView
         android:id="@+id/answerDisplay"
@@ -31,15 +31,15 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginEnd="32dp"
+        android:scrollHorizontally="true"
+        android:singleLine="true"
         android:text="0"
         android:textAlignment="viewEnd"
         android:textColor="@android:color/darker_gray"
-        android:textSize="40sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:textSize="35sp"
+        app:layout_constraintBottom_toTopOf="@id/numberDisplay"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/numberDisplay"
-        android:singleLine="true"
-        android:scrollHorizontally="true" />
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

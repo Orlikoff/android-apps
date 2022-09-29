@@ -9,15 +9,17 @@ import android.view.ViewGroup
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
+import androidx.lifecycle.ViewModelProvider
 import com.orlik.calculator.databinding.FragmentSimpleNumpadBinding
+import com.orlik.calculator.viewmodel.NumpadViewModel
 import org.mariuszgromada.math.mxparser.*
-import kotlin.math.acos
-import kotlin.math.tan
 
 class SimpleNumpadFragment : Fragment() {
 
     private lateinit var _binding: FragmentSimpleNumpadBinding
     private val binding get() = _binding
+
+    private lateinit var viewModel: NumpadViewModel
 
     companion object {
         lateinit var field: EditText
@@ -31,10 +33,13 @@ class SimpleNumpadFragment : Fragment() {
 
         // binding setup
         _binding = FragmentSimpleNumpadBinding.inflate(inflater, container, false)
+        viewModel = ViewModelProvider(requireActivity())[NumpadViewModel::class.java]
 
         // first setup
         mXparser.disableAlmostIntRounding()
-        field.setSelection(1)
+        field.setText(viewModel.expression)
+        field.setSelection(viewModel.expression.length)
+        display.text = viewModel.result
 
         // setting up the basic buttons
         binding.zero.setOnClickListener { zeroBtnPush() }
@@ -94,6 +99,8 @@ class SimpleNumpadFragment : Fragment() {
 
         field.setText(String.format("%s%s%s", leftString, string, rightString))
         field.setSelection(cursorPosition + string.length)
+
+        viewModel.expression = field.text.toString()
     }
 
     private fun zeroBtnPush() = updateDisplay("0")
@@ -146,11 +153,14 @@ class SimpleNumpadFragment : Fragment() {
             field.text = selection
             field.setSelection(cursorPosition - 1)
         }
+
+        viewModel.expression = field.text.toString()
     }
 
     private fun clearAllBtnPush() {
         field.setText("0")
         field.setSelection(1)
+        viewModel.expression = field.text.toString()
     }
 
     private fun evaluateBtnPush() {
@@ -169,11 +179,21 @@ class SimpleNumpadFragment : Fragment() {
             "Maximum precision exceeded, result might be inaccurate",
             Toast.LENGTH_SHORT
         ).show()
+        else if (result == "NaN"){
+            Toast.makeText(
+                requireContext(),
+                "Check the input",
+                Toast.LENGTH_SHORT
+            ).show()
+            return
+        }
 
         field.setText(result)
         field.setSelection(result.length)
 
         display.text = result
+        viewModel.expression = field.text.toString()
+        viewModel.result = result
     }
 
 }
