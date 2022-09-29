@@ -96,10 +96,18 @@ class VolumeFragment : Fragment() {
             clipboard.setPrimaryClip(
                 ClipData.newPlainText(
                     "Converter data",
-                    binding.volumeTvEdit.text.toString()
+                    binding.volumeTvDisplay.text.toString()
                 )
             )
             Toast.makeText(requireContext(), "Copied!", Toast.LENGTH_SHORT).show()
+        }
+        binding.volumeTvEdit.setOnLongClickListener {
+            val clipboard =
+                requireActivity().getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
+            binding.volumeTvEdit.setText(
+                (clipboard.primaryClip?.getItemAt(0)?.text.toString() ?: "0")
+            )
+            return@setOnLongClickListener true
         }
 
         return binding.root

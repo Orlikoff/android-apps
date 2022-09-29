@@ -90,10 +90,18 @@ class WeightFragment : Fragment() {
             clipboard.setPrimaryClip(
                 ClipData.newPlainText(
                     "Converter data",
-                    binding.weightTvEdit.text.toString()
+                    binding.weightTvDisplay.text.toString()
                 )
             )
             Toast.makeText(requireContext(), "Copied!", Toast.LENGTH_SHORT).show()
+        }
+        binding.weightTvEdit.setOnLongClickListener {
+            val clipboard =
+                requireActivity().getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
+            binding.weightTvEdit.setText(
+                (clipboard.primaryClip?.getItemAt(0)?.text.toString() ?: "0")
+            )
+            return@setOnLongClickListener true
         }
 
         return binding.root

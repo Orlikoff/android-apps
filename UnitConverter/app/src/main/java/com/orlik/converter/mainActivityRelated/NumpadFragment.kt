@@ -44,6 +44,11 @@ class NumpadFragment : Fragment() {
         numpadSetupNum(binding.btnDot)
         numpadSetupClear(binding.btnClear)
 
+        binding.btnClear.setOnLongClickListener {
+            currentEditElement!!.text = "0"
+            return@setOnLongClickListener true
+        }
+
         return binding.root
     }
 

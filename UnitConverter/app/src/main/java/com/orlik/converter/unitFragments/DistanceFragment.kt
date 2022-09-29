@@ -96,10 +96,18 @@ class DistanceFragment : Fragment() {
             clipboard.setPrimaryClip(
                 ClipData.newPlainText(
                     "Converter data",
-                    binding.distanceTvEdit.text.toString()
+                    binding.distanceTvDisplay.text.toString()
                 )
             )
             Toast.makeText(requireContext(), "Copied!", Toast.LENGTH_SHORT).show()
+        }
+        binding.distanceTvEdit.setOnLongClickListener {
+            val clipboard =
+                requireActivity().getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
+            binding.distanceTvEdit.setText(
+                (clipboard.primaryClip?.getItemAt(0)?.text.toString() ?: "0")
+            )
+            return@setOnLongClickListener true
         }
 
         return binding.root

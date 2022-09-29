@@ -83,6 +83,7 @@
         android:layout_marginTop="32dp"
         android:cursorVisible="false"
         android:focusable="false"
+        android:inputType="numberDecimal"
         android:scrollHorizontally="true"
         android:singleLine="true"
         android:textAlignment="viewEnd"
