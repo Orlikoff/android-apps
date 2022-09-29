@@ -92,8 +92,6 @@ class SimpleNumpadFragment : Fragment() {
             cursorPosition = 0
         }
 
-        if (oldString.contains(".") && string == ".") return
-
         val leftString = oldString.substring(0, cursorPosition)
         val rightString = oldString.substring(cursorPosition)
 

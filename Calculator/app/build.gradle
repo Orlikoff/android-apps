@@ -16,6 +16,18 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
+    flavorDimensions "versions"
+    productFlavors {
+        demo {
+            applicationIdSuffix ".demo"
+            dimension "versions"
+        }
+        paid {
+            applicationIdSuffix ".paid"
+            dimension "versions"
+        }
+    }
+
     buildFeatures {
         viewBinding true
     }
